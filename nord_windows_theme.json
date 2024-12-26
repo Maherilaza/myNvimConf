@@ -1,0 +1,156 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": 
+    [
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
+        },
+        {
+            "command": "paste",
+            "id": "User.paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "id": "User.splitPane.A6751878",
+            "keys": "alt+shift+d"
+        },
+        {
+            "command": "find",
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
+        }
+    ],
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles": 
+    {
+        "defaults": 
+        {
+            "colorScheme": "Nord",
+            "font": 
+            {
+                "face": "0xProto Nerd Font Mono",
+                "size": 16
+            }
+        },
+        "list": 
+        [
+            {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt"
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            },
+            {
+                "font": 
+                {
+                    "face": "FiraCode Nerd Font"
+                },
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "hidden": false,
+                "name": "PowerShell",
+                "source": "Windows.Terminal.PowershellCore"
+            },
+            {
+                "bellStyle": "none",
+                "colorScheme": "Nord",
+                "font": 
+                {
+                    "face": "0xProto Nerd Font Mono",
+                    "size": 16
+                },
+                "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
+                "hidden": false,
+                "intenseTextStyle": "bright",
+                "name": "Arch",
+                "source": "Windows.Terminal.Wsl"
+            }
+        ]
+    },
+    "schemes": 
+    [
+        {
+            "background": "#2E3440",
+            "black": "#2E3440",
+            "blue": "#BD93F9",
+            "brightBlack": "#6272A4",
+            "brightBlue": "#D6ACFF",
+            "brightCyan": "#A4FFFF",
+            "brightGreen": "#69FF94",
+            "brightPurple": "#FF92DF",
+            "brightRed": "#FF6E6E",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#FFFFA5",
+            "cursorColor": "#F8F8F2",
+            "cyan": "#8BE9FD",
+            "foreground": "#F8F8F2",
+            "green": "#50FA7B",
+            "name": "Dracula",
+            "purple": "#FF79C6",
+            "red": "#FF5555",
+            "selectionBackground": "#2E3440",
+            "white": "#F8F8F2",
+            "yellow": "#F1FA8C"
+        },
+        {
+            "name": "Nord",
+      
+            "foreground": "#D8DEE9",
+            "background": "#2E3440",
+      
+            "selectionBackground": "#434C5E",
+            "cursorColor": "#81A1C1",
+      
+            "black": "#3B4252",
+            "red": "#BF616A",
+            "green": "#A3BE8C",
+            "yellow": "#EBCB8B",
+            "blue": "#81A1C1",
+            "purple": "#B48EAD",
+            "cyan": "#88C0D0",
+            "white": "#E5E9F0",
+      
+            "brightBlack": "#4C566A",
+            "brightRed": "#BF616A",
+            "brightGreen": "#A3BE8C",
+            "brightYellow": "#EBCB8B",
+            "brightBlue": "#81A1C1",
+            "brightPurple": "#B48EAD",
+            "brightCyan": "#8FBCBB",
+            "brightWhite": "#ECEFF4"
+          }
+    ],
+    "themes": []
+}
