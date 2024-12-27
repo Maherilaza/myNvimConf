@@ -620,7 +620,8 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.o.spell = false
 
-vim.keymap.set('n', '<Space>a', ':RustLsp hover actions<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Space>z', ':RustLsp hover actions<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Space>a', ':RustLsp hover range<CR>', { noremap = true, silent = true })
 
 require('toggleterm').setup{
   size = 20,  -- Taille du terminal en nombre de lignes ou de colonnes
@@ -685,4 +686,11 @@ vim.api.nvim_set_keymap('i', '<C-w>', '<C-o><C-w>', { noremap = true, silent = t
 vim.api.nvim_set_keymap('n', 'dd', '"_dd', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'x', '"_x', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'dw', '"_dw', { noremap = true, silent = true })
+
+
+-- Assigner F1 à :bnext
+vim.api.nvim_set_keymap('n', '<F2>', ':bnext<CR>', { noremap = true, silent = true })
+
+-- Assigner F2 à :bprevious
+vim.api.nvim_set_keymap('n', '<F3>', ':bprevious<CR>', { noremap = true, silent = true })
 
