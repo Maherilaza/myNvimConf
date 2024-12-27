@@ -606,7 +606,6 @@ vim.keymap.set({'n', 'i'}, "<C-+>", function() ResizeGuiFont(1)  end, opts)
 vim.keymap.set({'n', 'i'}, "<C-->", function() ResizeGuiFont(-1) end, opts)
 vim.keymap.set({'n', 'i'}, "<C-BS>", function() ResetGuiFont() end, opts)
 
-
 vim.cmd("colorscheme nord")
 
 -- Définir l'indentation pour les fichiers C, C++, .h, .hpp
@@ -619,12 +618,9 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-
 vim.o.spell = false
 
 vim.keymap.set('n', '<Space>a', ':RustLsp hover actions<CR>', { noremap = true, silent = true })
-
-
 
 require('toggleterm').setup{
   size = 20,  -- Taille du terminal en nombre de lignes ou de colonnes
@@ -671,9 +667,6 @@ vim.api.nvim_create_user_command('Tterm', function()
   vim.cmd('startinsert')
 end, {})
 
-
-
-
 -- Remap <Ctrl-w> en mode Terminal
 vim.api.nvim_set_keymap('t', '<C-w>', [[<C-\><C-n><C-w>]], { noremap = true, silent = true })
 
@@ -687,4 +680,9 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 -- Remap <Ctrl-w> pour naviguer entre les splits même en mode Insert
 vim.api.nvim_set_keymap('i', '<C-w>', '<C-o><C-w>', { noremap = true, silent = true })
+
+
+vim.api.nvim_set_keymap('n', 'dd', '"_dd', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'x', '"_x', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'dw', '"_dw', { noremap = true, silent = true })
 
