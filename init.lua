@@ -694,3 +694,23 @@ vim.api.nvim_set_keymap('n', '<F2>', ':bnext<CR>', { noremap = true, silent = tr
 -- Assigner F2 à :bprevious
 vim.api.nvim_set_keymap('n', '<F3>', ':bprevious<CR>', { noremap = true, silent = true })
 
+
+-- default settings
+require("lsp-endhints").setup {
+	icons = {
+		type = "󰜁 ",
+		parameter = "󰏪 ",
+		offspec = " ", -- hint kind not defined in official LSP spec
+		unknown = " ", -- hint kind is nil
+	},
+	label = {
+		truncateAtChars = 20,
+		padding = 1,
+		marginLeft = 0,
+		sameKindSeparator = ", ",
+	},
+	extmark = {
+		priority = 50,
+	},
+	autoEnableHints = true,
+}
