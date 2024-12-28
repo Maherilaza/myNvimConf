@@ -704,7 +704,7 @@ require("lsp-endhints").setup {
 		unknown = " ", -- hint kind is nil
 	},
 	label = {
-		truncateAtChars = 20,
+		truncateAtChars = 30,
 		padding = 1,
 		marginLeft = 0,
 		sameKindSeparator = ", ",
@@ -714,3 +714,20 @@ require("lsp-endhints").setup {
 	},
 	autoEnableHints = true,
 }
+
+
+local original_notify = vim.notify
+vim.notify = function(msg, log_level, opts)
+  if not msg:match("position_encoding param is required") then
+    original_notify(msg, log_level, opts)
+  end
+end
+
+
+local original_notify = vim.notify
+vim.notify = function(msg, log_level, opts)
+  if not msg:match("multiple different client offset_encodings detected") then
+    original_notify(msg, log_level, opts)
+  end
+end
+
