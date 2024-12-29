@@ -683,9 +683,9 @@ vim.api.nvim_create_autocmd("BufEnter", {
 vim.api.nvim_set_keymap('i', '<C-w>', '<C-o><C-w>', { noremap = true, silent = true })
 
 
-vim.api.nvim_set_keymap('n', 'dd', '"_dd', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'x', '"_x', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'dw', '"_dw', { noremap = true, silent = true })
+vim.keymap.set('n', 'dd', '"_dd', { noremap = true, silent = true })
+vim.keymap.set('n', 'x', '"_x', { noremap = true, silent = true })
+vim.keymap.set('n', 'dw', '"_dw', { noremap = true, silent = true })
 
 
 -- Assigner F1 à :bnext
@@ -731,3 +731,20 @@ vim.notify = function(msg, log_level, opts)
   end
 end
 
+
+
+local vim = vim
+local Plug = vim.fn['plug#']
+
+vim.call('plug#begin')
+
+
+
+vim.call('plug#end')
+
+
+-- Color schemes should be loaded after plug#end().
+-- We prepend it with 'silent!' to ignore errors when it's not yet installed.
+vim.cmd('silent! colorscheme seoul256')
+
+vim.api.nvim_set_keymap('i', '<Space>', '<Space><C-g>u', { noremap = true, silent = true })
