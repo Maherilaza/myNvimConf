@@ -219,7 +219,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.undodir = vim.fn.expand('~/.vim/undodir')
 vim.opt.undofile = true
-vim.wo.relativenumber = true
+vim.wo.relativenumber = false
 vim.opt.spell = true
 -- [[ Basic Keymaps ]]
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -606,7 +606,6 @@ vim.keymap.set({'n', 'i'}, "<C-+>", function() ResizeGuiFont(1)  end, opts)
 vim.keymap.set({'n', 'i'}, "<C-->", function() ResizeGuiFont(-1) end, opts)
 vim.keymap.set({'n', 'i'}, "<C-BS>", function() ResetGuiFont() end, opts)
 
-vim.cmd("colorscheme nord")
 
 -- Définir l'indentation pour les fichiers C, C++, .h, .hpp
 vim.api.nvim_create_autocmd("FileType", {
@@ -682,12 +681,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 -- Remap <Ctrl-w> pour naviguer entre les splits même en mode Insert
 vim.api.nvim_set_keymap('i', '<C-w>', '<C-o><C-w>', { noremap = true, silent = true })
 
-
-vim.keymap.set('n', 'dd', '"_dd', { noremap = true, silent = true })
-vim.keymap.set('n', 'x', '"_x', { noremap = true, silent = true })
-vim.keymap.set('n', 'dw', '"_dw', { noremap = true, silent = true })
-
-
 -- Assigner F1 à :bnext
 vim.api.nvim_set_keymap('n', '<F2>', ':bnext<CR>', { noremap = true, silent = true })
 
@@ -698,7 +691,7 @@ vim.api.nvim_set_keymap('n', '<F3>', ':bprevious<CR>', { noremap = true, silent 
 -- default settings
 require("lsp-endhints").setup {
 	icons = {
-		type = "󰜁 ",
+		type = "=> ",
 		parameter = "󰏪 ",
 		offspec = " ", -- hint kind not defined in official LSP spec
 		unknown = " ", -- hint kind is nil
@@ -738,7 +731,7 @@ local Plug = vim.fn['plug#']
 
 vim.call('plug#begin')
 
-
+Plug 'Mofiqul/vscode.nvim'
 
 vim.call('plug#end')
 
@@ -748,3 +741,47 @@ vim.call('plug#end')
 vim.cmd('silent! colorscheme seoul256')
 
 vim.api.nvim_set_keymap('i', '<Space>', '<Space><C-g>u', { noremap = true, silent = true })
+
+
+-- Lua:
+-- For dark theme (neovim's default)
+vim.o.background = 'dark'
+
+local c = require('vscode.colors')
+require('vscode').setup({
+
+    -- Override colors (see ./lua/vscode/colors.lua)
+    color_overrides = {
+        vscLineNumber = '#FFFFFF',
+    },
+
+    -- Override highlight groups (see ./lua/vscode/theme.lua)
+    group_overrides = {
+        -- this supports the same val table as vim.api.nvim_set_hl
+        -- use colors from this colorscheme by requiring vscode.colors!
+        Cursor = { fg=c.vscDarkBlue, bg=c.vscLightGreen, bold=true },
+    }
+})
+
+vim.cmd("colorscheme vscode")
+
+vim.diagnostic.config({
+  virtual_text = false,  -- Désactive les textes virtuels dans le buffer
+  float = {
+    border = "rounded",  -- Ajoute une bordure arrondie aux fenêtres flottantes
+  },
+})
+
+
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { noremap = true, silent = true })
+
+
+-- Temps avant d'afficher les diagnostics (en millisecondes)
+vim.o.updatetime = 300
+
+-- Afficher automatiquement les diagnostics flottants
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.diagnostic.open_float(nil, { focusable = false })
+  end,
+})

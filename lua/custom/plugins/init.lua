@@ -43,9 +43,10 @@ return {
 	event = "LspAttach",
 	opts = {}, -- required, even if empty
   },
-
+  { "Mofiqul/dracula.nvim" },
   {
     'akinsho/toggleterm.nvim', version = "*", config = true
   },
+  -- lazy
 }
 
