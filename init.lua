@@ -681,14 +681,20 @@ vim.api.nvim_create_autocmd("BufEnter", {
 -- Remap <Ctrl-w> pour naviguer entre les splits même en mode Insert
 vim.api.nvim_set_keymap('i', '<C-w>', '<C-o><C-w>', { noremap = true, silent = true })
 
--- Assigner F1 à :bnext
+-- Changer vers le buffer suivant
 vim.api.nvim_set_keymap('n', '<F2>', ':bnext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<F2>', '<C-\\><C-n>:bnext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<F2>', '<C-\\><C-n>:bnext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<F2>', '<C-\\><C-n>:bnext<CR>', { noremap = true, silent = true })
 
--- Assigner F2 à :bprevious
+-- Changer vers le buffer précédent
 vim.api.nvim_set_keymap('n', '<F3>', ':bprevious<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<F3>', '<C-\\><C-n>:bprevious<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<F3>', '<C-\\><C-n>:bprevious<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<F3>', '<C-\\><C-n>:bprevious<CR>', { noremap = true, silent = true })
 
 
--- default settings
+
 require("lsp-endhints").setup {
 	icons = {
 		type = "=> ",
