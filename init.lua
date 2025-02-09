@@ -791,3 +791,16 @@ vim.api.nvim_create_autocmd("CursorHold", {
     vim.diagnostic.open_float(nil, { focusable = false })
   end,
 })
+
+vim.keymap.set('n', 'd', '"_d')  -- Pour désactiver la copie dans le registre
+
+vim.cmd([[
+  set nrformats-=alpha
+]])
+
+vim.cmd([[
+  iabbrev < <
+  iabbrev > >
+  iabbrev != !=
+]])
+
